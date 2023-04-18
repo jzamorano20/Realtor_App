@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS realtor_db;
+CREATE DATABASE realtor_db;
