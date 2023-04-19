@@ -14,10 +14,13 @@ House.init({
         type: DataTypes.TEXT,
         allowNull: false
     },
+    price: {
+        type: DataTypes.INTEGER
+    },
     type: {
         type:DataTypes.TEXT,
         allowNull: false
-    }
+    },
 }, {
         sequelize: db,
         modelName: 'house'
