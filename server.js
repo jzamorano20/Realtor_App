@@ -3,6 +3,9 @@ const express = require('express');
 const mysql = require('mysql2');
 const PORT = process.env.PORT || 3000;
 const view_routes = require('./controller/api_routes');
+const public_routes = require('./controllers/public_routes');
+const auth_routes = require('./controllers/auth_routes');
+const private_routes = require('./controllers/private_routes');
 const db = require('./config/connection');
 const { engine } = require('express-handlebars');
 const session = require('express-session');
@@ -10,10 +13,13 @@ const session = require('express-session');
 
 const app = express();
 
+// Static and middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
 
+
+// Setup handlebars
 app.engine('hbs', engine({
   extname: '.hbs'
 }));
@@ -21,7 +27,7 @@ app.set('view engine', 'hbs');
 app.set('views', './views');
 
 
-
+// Setup the req.session object for our routes
 app.use(session({
   // Required to be used to validate the client cookie matches the session secret
   secret: process.env.SESSION_SECRET,
@@ -30,7 +36,8 @@ app.use(session({
 }));
 
 
-app.use('/', view_routes);
+// Load all of our routes at the root
+app.use('/', [public_routes, auth_routes, private_routes]);
 
 db.sync().then(() => {
     app.listen(PORT, () => console.log('Server started on port :) %s', PORT))
