@@ -24,9 +24,3 @@ app.engine('hbs', engine({
 db.sync().then(() => {
     app.listen(PORT, () => console.log('Server started on port %s', PORT))
   });
-
-
-
-
-
-//    a;dfa
