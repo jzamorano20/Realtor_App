@@ -22,5 +22,6 @@ app.engine('hbs', engine({
 // app.use('/', view_routes);
 
 db.sync().then(() => {
-    app.listen(PORT, () => console.log('Server started on port %s', PORT))
+    app.listen(PORT, () => console.log('Server started on port :) %s', PORT))
   });
+
