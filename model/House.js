@@ -6,14 +6,18 @@ class House extends Model { }
 House.init({
     id: {
         type: DataTypes.INTEGER,
-        type: DataTypes.TEXT,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
-    password: {
-        type: DataTypes.TEXT
+    location: {
+        type: DataTypes.TEXT,
+        allowNull: false
     },
+    type: {
+        type:DataTypes.TEXT,
+        allowNull: false
+    }
 }, {
         sequelize: db,
         modelName: 'house'

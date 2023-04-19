@@ -1,4 +1,16 @@
+const User = require('./User');
+const House = require('./House');
+const UserHouse = require('./UserHouse');
+
+User.belongsToMany(House, {through: 'UserHouse'});
+House.belongsToMany(User, {through: 'UserHouse'});
+
+
 module.exports = {
-    User: require('./User'),
-    House: require('./House')
+    User,
+    House,
+    UserHouse
   }
+
+
+  
