@@ -1,0 +1,10 @@
+.form-contianer{
+margin:30px auto;
+display: block;
+width: 500px;
+text-align: center;
+}
+
+.form-contianer input{
+    margin-bottom: 10px;
+}
