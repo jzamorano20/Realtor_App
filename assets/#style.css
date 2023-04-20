@@ -1,10 +1,20 @@
-.form-contianer{
-margin:30px auto;
-display: block;
-width: 500px;
-text-align: center;
+.text{
+    background: url(landscape.png);
+    -webkit-background-clip: text;
+    background-clip:text;
+
+    color: transparent;
 }
 
-.form-contianer input{
+.form-container input[type="email"] {
+    margin-bottom: 10px;
+}
+.form-container input[type="password"] {
+    margin-bottom: 10px;
+}
+.form-container input[type="button"] {
+    margin-bottom: 10px;
+}
+.form-c{
     margin-bottom: 10px;
 }
