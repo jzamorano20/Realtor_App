@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, House } = require('../model');
+const { User, House } = require('../models');
 
 // controllers/private
 function isAuthenticated(req, res, next) {
@@ -22,27 +22,30 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
 
 
 // render and redirect to house listing page
-router.get('/houseListings', isAuthenticated, async (req,res)=>{
+router.get('/houseListings', isAuthenticated, async (req, res) => {
     const listings = await House.findAll();
 
-    res.render('houseListings', {listings: listings});
+    res.render('houseListings', { listings: listings });
 
 });
 
 
 
 // render and redirect to house posting page
-router.get('/posting', isAuthenticated, async (req,res) => {
-
+router.get('/posting', isAuthenticated, async (req, res) => {
+    const user = await User.findOne({
+        where: {
+            id: req.session.user_id
+        }
+    });
     const house_data = req.body;
 
-    try{
+    try {
 
-        const house = await House.create(house_data);
-
+        await user.createHouse(house_data);
 
         res.redirect('/');
-    } catch(err){
+    } catch (err) {
         res.redirect('/posting');
     }
 
@@ -50,8 +53,33 @@ router.get('/posting', isAuthenticated, async (req,res) => {
 
 });
 
+router.get('/favorites',isAuthenticated, async (req, res)=>{
+    const user = await User.findOne({
+        where:{
+            id: req.session.user_id
+        },
+        include:{
+            model: House,
+            as: 'favorites'
+        }
+    });
+    res.render('favorites',{
+        favorites: user.favorites
+    });
+});
 
 
+router.post('/favorites/:fav_id',isAuthenticated, async (req,res)=>{
+    const user = await User.findByPk(req.session.user_id);
+    const house = await House.findByPk(req.params.fav_id);
+    if(house.userId != user.id){
+        await user.addFavorites(house);
+        res.redirect('/favorites');
+
+    }
+
+
+});
 
 
 
