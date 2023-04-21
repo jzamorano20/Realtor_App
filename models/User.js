@@ -1,43 +1,28 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
+const House = require('./House');
 const db = require('../config/connection');
 
-class User extends Model {
-    async validatePass(Pass_provided) {
-        const Pass_valid = await bcrypt.compare(Pass_provided, this.password)
-
-        return Pass_valid;
-    }
-}
+class User extends Model { }
 
 User.init({
-    email: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false,
-        validate: {
-            isEmail: true
-        }
+    user_name: {
+        type: DataTypes.TEXT,
+        allowNull: false
     },
     password: {
-        type: DataTypes.TEXT,
-        validate: {
-            // checks the value if at least 10 characters in lenght
-            len: 10
-        },
-        allowNull: false
+        type: DataTypes.TEXT
     },
 }, {
     sequelize: db,
-    modelName: 'user',
-    hooks: {
-        async beforeCreate(user) {
-            const encrypted_password = await bcrypt.hash(user.password, 10);
-            user.password = encrypted_password;
-        }
-    }
+    modelName: 'user'
 });
 
+// Have to alias it because we have to different associations using House
+User.belongsToMany(House,{through:'user_favorites', as: 'favorites'});
+User.hasMany(House);
+House.belongsTo(User);
 
 module.exports = User;
+
+
 
