@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const {User} = require('../../models');
+
 
 // controllers/private
 function isAuthenticated(req, res, next) {
@@ -17,7 +19,9 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
 
     // Render the dashboard view and share the user's email address
     // so we can output it in the hbs html
-    res.render('private/dashboard');
+    res.render('private/dashboard', {
+        user_name: user.user_name
+    });
 });
 
 
