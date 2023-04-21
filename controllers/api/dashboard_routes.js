@@ -11,9 +11,6 @@ function isAuthenticated(req, res, next) {
 
 
 
-
-
-
 router.get('/dashboard', isAuthenticated, async (req, res) => {
     // Get the user by their id that is stored to the session
     const user = await User.findByPk(req.session.user_id);

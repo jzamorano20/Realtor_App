@@ -15,7 +15,7 @@ router.get('/', isLoggedIn, (req, res) => {
     const user = User.findByPk(user_id);
     
 
-    res.render('dashboard', user);
+    res.render('private/dashboard', user);
 });
 
 // Render the Login Page view

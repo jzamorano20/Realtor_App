@@ -2,7 +2,16 @@ const { Model, DataTypes } = require('sequelize');
 const House = require('./House');
 const db = require('../config/connection');
 
-class User extends Model { }
+class User extends Model {
+
+    async validatePass(provided_password) {
+        // bcrypt compare returns a boolean, based on if the string matches the encrypted string
+        const is_valid = await bcrypt.compare(provided_password, this.password);
+
+        return is_valid;
+    }
+
+ }
 
 User.init({
     user_name: {
