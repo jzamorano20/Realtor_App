@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const User = require('../models/User');
 
 /// Middleware function to redirect a logged in user to the dashboard
 // We don't want to show auth pages if they're logged in
@@ -9,10 +9,13 @@ function isLoggedIn(req, res, next) {
     next();
 }
 
-// Render the Homepage view
+// Render the Dashboard view
 router.get('/', isLoggedIn, (req, res) => {
-    console.log('Reached here');
-    res.render('dashboard');
+    const user_id = req.session.user_id;
+    const user = User.findByPk(user_id);
+    
+
+    res.render('dashboard', user);
 });
 
 // Render the Login Page view
