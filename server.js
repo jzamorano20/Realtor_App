@@ -2,17 +2,22 @@ require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const PORT = process.env.PORT || 3000;
-const session = require('express-session');
-const public_routes = require('./controllers/public_routes');
-const private_routes = require('./controllers/private_routes');
-const auth_routes = require('./controllers/auth_routes');
-const { engine } = require('express-handlebars');
+const routes = require('./controllers')
 const db = require('./config/connection');
+const { engine } = require('express-handlebars');
+const session = require('express-session');
 const { User, House } = require('./models');
 
 
 const app = express();
 
+// Static and middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(express.static('public'));
+
+
+// Setup handlebars
 app.engine('hbs', engine({
   extname: '.hbs',
   runtimeOptions: {
@@ -23,11 +28,7 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-
-
+// Setup the req.session object for our routes
 app.use(session({
   // Required to be used to validate the client cookie matches the session secret
   secret: process.env.SESSION_SECRET,
@@ -36,7 +37,9 @@ app.use(session({
 }));
 
 
-app.use('/', [public_routes, private_routes, auth_routes]);
+// Load all of our routes at the root
+
+app.use(routes)
 
 db.sync({ force: true }).then(async () => {
   const user1 = await User.create({
