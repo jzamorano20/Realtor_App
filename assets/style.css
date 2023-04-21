@@ -57,7 +57,7 @@ div.form {
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-    animation: dd1 10s 1, dd12 10s 1;
+    animation: dd1 10s infinite, dd12 10s infinite;
     animation-delay: 4s, 14s;
 }
 
@@ -75,7 +75,7 @@ div.form {
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
-    animation: dd2 10s 2;
+    animation: dd2 10s infinite;
     animation-delay: 4s;
 }
 
@@ -94,7 +94,7 @@ div.form {
     top: 50%;
     transform: translateY(-50%);
     z-index: 3;
-    animation: dd3 10s 2;
+    animation: dd3 10s infinite;
     animation-delay: 4s;
 }
 
@@ -112,7 +112,7 @@ div.form {
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
-    animation: dd4 10s 2;
+    animation: dd4 10s infinite;
     animation-delay: 4s;
 }
 
