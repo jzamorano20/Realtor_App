@@ -11,6 +11,7 @@ function isLoggedIn(req, res, next) {
 
 // Render the Homepage view
 router.get('/', isLoggedIn, (req, res) => {
+    console.log('Reached here');
     res.render('dashboard');
 });
 
