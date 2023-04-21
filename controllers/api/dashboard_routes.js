@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { User, House } = require('../models');
 
 // controllers/private
 function isAuthenticated(req, res, next) {
@@ -30,7 +29,6 @@ router.get('/houseListings', isAuthenticated, async (req, res) => {
 });
 
 
-
 // render and redirect to house posting page
 router.get('/posting', isAuthenticated, async (req, res) => {
     const user = await User.findOne({
@@ -53,26 +51,26 @@ router.get('/posting', isAuthenticated, async (req, res) => {
 
 });
 
-router.get('/favorites',isAuthenticated, async (req, res)=>{
+router.get('/favorites', isAuthenticated, async (req, res) => {
     const user = await User.findOne({
-        where:{
+        where: {
             id: req.session.user_id
         },
-        include:{
+        include: {
             model: House,
             as: 'favorites'
         }
     });
-    res.render('favorites',{
+    res.render('favorites', {
         favorites: user.favorites
     });
 });
 
 
-router.post('/favorites/:fav_id',isAuthenticated, async (req,res)=>{
+router.post('/favorites/:fav_id', isAuthenticated, async (req, res) => {
     const user = await User.findByPk(req.session.user_id);
     const house = await House.findByPk(req.params.fav_id);
-    if(house.userId != user.id){
+    if (house.userId != user.id) {
         await user.addFavorites(house);
         res.redirect('/favorites');
 
@@ -80,8 +78,6 @@ router.post('/favorites/:fav_id',isAuthenticated, async (req,res)=>{
 
 
 });
-
-
 
 
 module.exports = router;
