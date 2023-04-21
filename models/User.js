@@ -15,11 +15,11 @@ class User extends Model {
 
 User.init({
     user_name: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false
     },
     password: {
-        type: DataTypes.TEXT
+        type: DataTypes.STRING
     },
 }, {
     sequelize: db,
