@@ -1,5 +1,4 @@
-const router = require('express').Router;
-// const { User, House } = require('../model');
+const router = require('express').Router();
 
 
 /// Middleware function to redirect a logged in user to the dashboard
@@ -18,7 +17,7 @@ router.get('/', isLoggedIn, (req, res) => {
 // Render the Login Page view
 router.get('/login', (req, res) => {
     res.render('index');
-});``
+});
 
 
 // Render the Register Page view
@@ -26,4 +25,6 @@ router.get('/register', (req, res) => {
     res.render('register');
 });
 
-module.exports = router;
+
+ module.exports = router;
+

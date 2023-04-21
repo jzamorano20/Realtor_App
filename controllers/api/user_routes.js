@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const User = require('../models/User');
+const { User } = require('../../models/User');
 
 // Route to receive the login form information - Triggered by the Login page form
 router.post('/auth/login', async (req, res) => {
-    // The form data - email, password
+    // The form data - email, passwords
     const user_data = req.body;
   
     // Find the user by the email address provided
@@ -25,7 +25,7 @@ router.post('/auth/login', async (req, res) => {
 
     req.session.user_id = user.id;
   
-    res.redirect('/dashboard');
+    res.redirect('/dashboard'); 
   });
 
 
