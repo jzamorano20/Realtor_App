@@ -26,7 +26,7 @@ router.get('/login', (req, res) => {
 
 // Render the Register Page view
 router.get('/register', (req, res) => {
-    res.render('register');
+    res.render('auth/register');
 });
 
 
