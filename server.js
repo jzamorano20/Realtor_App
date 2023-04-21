@@ -6,11 +6,6 @@ const routes = require('./controllers')
 const db = require('./config/connection');
 const { engine } = require('express-handlebars');
 const session = require('express-session');
-const public_routes = require('./controllers/public_routes');
-const private_routes = require('./controllers/private_routes');
-const auth_routes = require('./controllers/auth_routes');
-const { engine } = require('express-handlebars');
-const db = require('./config/connection');
 const { User, House } = require('./models');
 
 
