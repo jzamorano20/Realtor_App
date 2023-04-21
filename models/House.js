@@ -11,14 +11,14 @@ House.init({
         autoIncrement: true
     },
     location: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false
     },
     price: {
         type: DataTypes.INTEGER
     },
     type: {
-        type:DataTypes.TEXT,
+        type:DataTypes.STRING,
         allowNull: false
     },
 }, {
