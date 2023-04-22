@@ -38,7 +38,7 @@ router.post('/register', async (req, res) => {
   console.log('reached post')
 
   const user_data = req.body;
-  console.log(user_data);
+  // console.log(user_data);
   try {
     const user = await User.create(user_data);
 

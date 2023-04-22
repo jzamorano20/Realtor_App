@@ -35,7 +35,9 @@ User.init({
 
 // Have to alias it because we have to different associations using House
 User.belongsToMany(House,{through:'user_favorites', as: 'favorites'});
+// This association represents the association made when a user posts houses.
 User.hasMany(House);
+// This association represents the ossociation of the house having a user that posted it. 
 House.belongsTo(User);
 
 module.exports = User;
