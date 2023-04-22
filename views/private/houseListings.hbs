@@ -1,0 +1,15 @@
+<h2>House Listings</h2>
+
+<a href="/">Go back</a>
+
+<ul>
+
+    {{#each listings}}
+    <li>
+        <p>{{this.location}}</p>
+        <p>{{this.price}}</p>
+        <p>{{this.type}}</p>
+    </li>
+    <br/>
+    {{/each}}
+</ul>
