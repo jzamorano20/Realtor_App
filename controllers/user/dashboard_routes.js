@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User} = require('../../models');
+const { User, House } = require('../../models');
 
 
 // controllers/private
@@ -16,11 +16,13 @@ function isAuthenticated(req, res, next) {
 router.get('/dashboard', isAuthenticated, async (req, res) => {
     // Get the user by their id that is stored to the session
     const user = await User.findByPk(req.session.user_id);
-
+    const houses = await user.getHouses();
+    // console.log(houses);
     // Render the dashboard view and share the user's email address
     // so we can output it in the hbs html
     res.render('private/dashboard', {
         user_name: user.user_name
+
     });
 });
 
@@ -28,33 +30,39 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
 // render and redirect to house listing page
 router.get('/houseListings', isAuthenticated, async (req, res) => {
     const listings = await House.findAll();
-
-    res.render('houseListings', { listings: listings });
+    console.log(listings)
+    res.render('private/houseListings', { listings: listings });
 
 });
 
 
 // render and redirect to house posting page
 router.get('/posting', isAuthenticated, async (req, res) => {
-    const user = await User.findOne({
-        where: {
-            id: req.session.user_id
-        }
-    });
-    const house_data = req.body;
+    res.render('private/posting');
+});
+
+router.post('/posting', isAuthenticated, async (req, res) => {
 
     try {
+        const user = await User.findOne({
+            where: {
+                id: req.session.user_id
+            }
+        });
+        const house_data = req.body;
 
+        // console.log("House data: \n", house_data);
         await user.createHouse(house_data);
-
+        // console.log('reached posting creation');
+        // console.log(user);
         res.redirect('/');
     } catch (err) {
+        console.log(err);
         res.redirect('/posting');
     }
 
-    res.render('postings');
-
 });
+
 
 router.get('/favorites', isAuthenticated, async (req, res) => {
     const user = await User.findOne({
