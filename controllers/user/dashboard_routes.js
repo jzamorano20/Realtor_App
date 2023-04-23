@@ -17,7 +17,7 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
     // Get the user by their id that is stored to the session
     const user = await User.findByPk(req.session.user_id);
     const houses = await user.getHouses();
-    // console.log(houses);
+    
     // Render the dashboard view and share the user's email address
     // so we can output it in the hbs html
     res.render('private/dashboard', {
@@ -30,7 +30,7 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
 // render and redirect to house listing page
 router.get('/houseListings', isAuthenticated, async (req, res) => {
     const listings = await House.findAll();
-    console.log(listings)
+    // console.log(listings)
     res.render('private/houseListings', { listings: listings });
 
 });
