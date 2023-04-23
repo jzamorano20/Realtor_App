@@ -83,14 +83,20 @@ router.get('/favorites', isAuthenticated, async (req, res) => {
 router.post('/favorites/:fav_id', isAuthenticated, async (req, res) => {
     const user = await User.findByPk(req.session.user_id);
     const house = await House.findByPk(req.params.fav_id);
+
+    console.log(req.params.fav_id);
+    // console.log(house);
+    // console.log(user);
+
+    // Checks if the house was created by the session user
     if (house.userId != user.id) {
+        console.log('reached redirect in favorite post')
         await user.addFavorites(house);
         res.redirect('/favorites');
 
     }
 
-
+    console.log('Not redirected in favorite post');
 });
-
 
 module.exports = router;

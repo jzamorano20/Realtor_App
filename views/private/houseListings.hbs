@@ -6,9 +6,13 @@
 
     {{#each listings}}
     <li>
+        <p>{{this.id}}</p>
+        <form action="/favorites/{{this.id}}" method="POST">
         <p>{{this.location}}</p>
         <p>{{this.price}}</p>
         <p>{{this.type}}</p>
+        <button>Favorite</button>
+        </form>
     </li>
     <br/>
     {{/each}}
