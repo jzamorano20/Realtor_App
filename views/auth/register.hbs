@@ -1,10 +1,36 @@
-<a href="/">Go Back</a>
+<nav class="navbar bg-dark ">
+  <a class=" " href="/">
+    <button type="submit" class="btn  btn-sm btn-warning">Go back to dashboard</button>
+  </a>
+</nav>
 
-<h1>Register</h1>
 
-<!-- Don't forget the "name" attribute - this is used to set a property on the req.body object -->
-<form action="/user/register" method="POST">
-  <input name="user_name" type="text" placeholder="Enter your user name">
-  <input name="password" type="password" placeholder="Enter your password">
-  <button>Submit</button>
-</form>
+<div style="
+    background-image : url('https://media.istockphoto.com/id/1026205392/es/foto/exterior-casa-hermosa-de-lujo-en-el-crep%C3%BAsculo.jpg?s=612x612&w=0&k=20&c=2weHZmlYGLEeR-fepd3vtKk1zVpB6bfLkedtqzBi2jM=');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  ">
+  <h1 class="text-center bg-transparent text-white">Register</h1>
+
+  <!-- Don't forget the "name" attribute - this is used to set a property on the req.body object -->
+  <div class="container bg-transparent ">
+    <div class="row justify-content-center bg-transparent">
+      <form class="bg-transparent  " action="/user/register" method="POST">
+        <div class="form-group text-center">
+        <input class="form-control" name="user_name" type="text" placeholder="Enter your user name">
+        </div>
+        <br />
+        <div class="form-group text-center">
+        <input class="form-control" name="password" type="password" placeholder="Enter your password">
+        </div>
+        <br />
+        <div class="form-group text-center bg-transparent">
+          <button class="  btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
