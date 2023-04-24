@@ -1,44 +1,56 @@
-    <nav class="navbar bg-dark">
+<nav class="navbar bg-dark">
     <a href="/">Go back to dashboard</a>
-    </nav>
-    <div style="
-    background-image : url('https://media.istockphoto.com/id/1026205392/es/foto/exterior-casa-hermosa-de-lujo-en-el-crep%C3%BAsculo.jpg?s=612x612&w=0&k=20&c=2weHZmlYGLEeR-fepd3vtKk1zVpB6bfLkedtqzBi2jM=');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-  ">
-
+</nav>
 <h2 class="text-center">Create a post</h2>
 
+{{!--
+<form action="/posting" method="POST">
+    <input type="text" name="location" placeholder="Enter the location">
+    <br />
+    <input type="text" name="price" placeholder="Enter the house's price">
+    <br />
+    <input type="text" name="type" placeholder="Describe the type of house">
+    <br />
+    <button>Submit</button>
+</form> --}}
+<div style="
+    background-image : url('https://media.istockphoto.com/id/1026205392/es/foto/exterior-casa-hermosa-de-lujo-en-el-crep%C3%BAsculo.jpg?s=612x612&w=0&k=20&c=2weHZmlYGLEeR-fepd3vtKk1zVpB6bfLkedtqzBi2jM=');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    <!-- Background image -->
-     <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white bg-transparent">
-        <div class="mb-3 text-white bg-transparent ">
-            <h4 class="bg-transparent bd-highlight" for="validationTextarea">Location</h4>
-            <input class="form-control is-invalid" id="validationTextarea" name="location" placeholder="Required example textarea"
-                required>
-            <div class="invalid-feedback bg-transparent">
-                Please enter the houses location.
+  ">
+
+    <form class="was-validated" action="/posting" method="POST">
+        <!-- Background image -->
+     
+            <div class="mb-3 text-dark bg-transparent ">
+                <h4 class=" bg-primary " for="validationTextarea">Location</h4>
+                <input class="form-control is-invalid" id="validationTextarea" name="location"
+                    placeholder="Required example textarea" required>
+                <div class="invalid-feedback bg-primary">
+                    Please enter the houses location.
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 text-white bg-transparent ">
-            <h4 class=" bg-transparent bd-highlight" for="validationTextarea">Price</h4>
-            <input class="form-control is-invalid" id="validationTextarea" name="price" placeholder="Required example textarea"
-                required>
-            <div class="invalid-feedback m-0 p-0 ">
-               <span class=" bg-dark bg-gradient "> Please enter the houses price. </span>
+            <div class="mb-3 text-dark bg-primary ">
+                <h4 class=" bg-primary " for="validationTextarea">Price</h4>
+                <input class="form-control is-invalid" id="validationTextarea" name="price"
+                    placeholder="Required example textarea" required>
+                <div class="invalid-feedback bg-primary">
+                    Please enter the houses price.
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 text-white bg-transparent bd-highlight">
-            <h4 class=" bg-transparent bd-highlight"  for="validationTextarea">Description</h4>
-            <input class="form-control is-invalid" id="validationTextarea" name="type" placeholder="Required example textarea"
-                required>
-            <div class="invalid-feedback bg-transparent">
-                Please describe the house.
+            <div class="mb-3 text-dark bg-primary ">
+                <h4 class=" bg-primary " for="validationTextarea">Description</h4>
+                <input class="form-control is-invalid" id="validationTextarea" name="type"
+                    placeholder="Required example textarea" required>
+                <div class="invalid-feedback bg-primary">
+                    Please describe the house.
+                </div>
             </div>
-        </div> 
-        <button class="btn bg-primary border-dark">Submit</button>
 
-    </div>
+            <button>Submit</button>
+
+    </form>
