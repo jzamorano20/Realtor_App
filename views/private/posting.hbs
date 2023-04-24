@@ -1,18 +1,10 @@
-<nav class="navbar bg-dark">
-    <a href="/">Go back to dashboard</a>
+<nav class="navbar bg-dark ">
+    <a class=" " href="/">
+        <button type="submit" class="btn  btn-sm btn-warning">Go back to dashboard</button>
+    </a>
 </nav>
-<h2 class="text-center">Create a post</h2>
 
-{{!--
-<form action="/posting" method="POST">
-    <input type="text" name="location" placeholder="Enter the location">
-    <br />
-    <input type="text" name="price" placeholder="Enter the house's price">
-    <br />
-    <input type="text" name="type" placeholder="Describe the type of house">
-    <br />
-    <button>Submit</button>
-</form> --}}
+
 <div style="
     background-image : url('https://media.istockphoto.com/id/1026205392/es/foto/exterior-casa-hermosa-de-lujo-en-el-crep%C3%BAsculo.jpg?s=612x612&w=0&k=20&c=2weHZmlYGLEeR-fepd3vtKk1zVpB6bfLkedtqzBi2jM=');
     height: 100vh;
@@ -20,37 +12,39 @@
     background-size: cover;
 
   ">
+    <div class="container bg-transparent text-center ">
 
-    <form class="was-validated" action="/posting" method="POST">
-        <!-- Background image -->
-     
-            <div class="mb-3 text-dark bg-transparent ">
-                <h4 class=" bg-primary " for="validationTextarea">Location</h4>
+        <h2 class="text-center bg-transparent text-white">Create a post</h2>
+
+        <form class="was-validated bg-transparent" action="/posting" method="POST">
+            <!-- Background image -->
+            <div class="mb-3 text-dark bg-transparent text-center">
+                <h4 class=" bg-transparent text-white " for="validationTextarea">Location</h4>
                 <input class="form-control is-invalid" id="validationTextarea" name="location"
-                    placeholder="Required example textarea" required>
-                <div class="invalid-feedback bg-primary">
-                    Please enter the houses location.
+                    placeholder="Required example textarea " required>
+                <div class="invalid-feedback bg-transparent">
+                    <span class="bg-dark">  Please enter the houses location.</span>
                 </div>
             </div>
 
-            <div class="mb-3 text-dark bg-primary ">
-                <h4 class=" bg-primary " for="validationTextarea">Price</h4>
-                <input class="form-control is-invalid" id="validationTextarea" name="price"
+            <div class="mb-3 text-dark bg-transparent ">
+                <h4 class="fw-bold bg-transparent text-white " for="validationTextarea">Price</h4>
+                <input class="form-control is-invalid" id="validationTextarea" type="number" step="0.01" name="price"
                     placeholder="Required example textarea" required>
-                <div class="invalid-feedback bg-primary">
-                    Please enter the houses price.
+                <div class="invalid-feedback bg-transparent">
+                   <span class="bg-dark">   Please enter the houses price.</span>
                 </div>
             </div>
 
-            <div class="mb-3 text-dark bg-primary ">
-                <h4 class=" bg-primary " for="validationTextarea">Description</h4>
+            <div class="mb-3 text-dark bg-transparent ">
+                <h4 class="fw-bold bg-transparent text-white " for="validationTextarea">Description</h4>
                 <input class="form-control is-invalid" id="validationTextarea" name="type"
                     placeholder="Required example textarea" required>
-                <div class="invalid-feedback bg-primary">
-                    Please describe the house.
+                <div class="invalid-feedback bg-transparent">
+                   <span class="bg-dark"> Please describe the house.</span>
                 </div>
             </div>
 
-            <button>Submit</button>
-
+            <button class="btn btn-primary">Submit</button>
+    </div>
     </form>
