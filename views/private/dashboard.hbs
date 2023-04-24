@@ -1,42 +1,48 @@
-<div > 
+{{!-- class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white" --}}
+<div style="
+    background-image : url('https://media.istockphoto.com/id/1026205392/es/foto/exterior-casa-hermosa-de-lujo-en-el-crep%C3%BAsculo.jpg?s=612x612&w=0&k=20&c=2weHZmlYGLEeR-fepd3vtKk1zVpB6bfLkedtqzBi2jM=');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  ">
 
 
-  <header class="container  d-flex justify-content-center  ">
+  <header class="container  d-flex justify-content-center  align-items-center  bg-transparent">
 
-    <a  class="p-2 "    href="user/logout">
-    <button type="submit" class="btn btn-warning ">Logout</button>
+    <a class="p-2 " href="user/logout">
+      <button type="submit" class="btn btn-warning ">Logout</button>
     </a>
 
-    <h1 class="p-2 ">Dashboard</h1>
+    <h1 class="p-2  bg-transparent   p-3 mb-2 bg-primary text-white ">Dashboard</h1>
   </header>
 
 
-  <main class="container   justify-content-center ">
+  <main class="container   justify-content-center   align-items-center  bg-transparent">
 
-    <div class=" row aling-items_center ">
+    <div class=" row   bg-transparent   ">
 
-      <p class=" col ">Welcome {{user_name}}</p>
+      <p class=" col  bg-transparent   mb-2 bg-primary text-white ">Welcome {{user_name}}</p>
 
-      <dir class=" col ">
+      <div class=" col  bg-transparent ">
         <a href="/posting" class="">
           <button type="submit" class="btn btn-primary btn-sm">Create a New House Post</button>
         </a>
-      </dir>
+      </div>
 
       <br>
 
       <a class=" col  " href="/houseListings">
-        <button type="submit" class="btn btn-primary btn-sm">
+        <button type="submit" class="btn btn-primary btn-sm  ">
           View Listings
         </button>
       </a>
 
-      <div>
-        <div class=" col  ">
+      <div class=" bg-transparent">
+        <div class=" col  bg-transparent ">
           {{!-- <h1>favorites</h1> --}}
 
-          <a href="/favorites" Class="">
-            <button type="submit" class="btn btn-primary ">View Favorites</button>
+          <a href="/favorites" Class=" bg-transparent ">
+            <button type="submit" class="btn btn-primary  ">View Favorites</button>
           </a>
         </div>
 
@@ -45,11 +51,20 @@
   </main>
 
 
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
 
 
 
 </div>
+
+
+{{!-- https://www.pexels.com/photo/beige-bungalow-house-259588/ --}}
